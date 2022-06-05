@@ -77,6 +77,7 @@ export class CrudDocenteComponent implements OnInit {
   registra(){
         this.docenteService.registraDocente(this.docente).subscribe(
               (x) => {
+                document.getElementById("btn_reg_cerrar")?.click();
                 alert(x.mensaje);
                 this.docenteService.listaDocente(this.filtro==""?"todos":this.filtro).subscribe(
                         (x) => this.docentes = x
@@ -121,6 +122,7 @@ export class CrudDocenteComponent implements OnInit {
   actualiza(){
     this.docenteService.actualizaDocente(this.docente).subscribe(
           (x) => {
+            document.getElementById("btn_act_cerrar")?.click();
             alert(x.mensaje);
             this.docenteService.listaDocente(this.filtro==""?"todos":this.filtro).subscribe(
                     (x) => this.docentes = x
